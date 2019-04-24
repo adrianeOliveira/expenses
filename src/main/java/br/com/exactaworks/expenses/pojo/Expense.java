@@ -1,34 +1,41 @@
 package br.com.exactaworks.expenses.pojo;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
+@NamedQueries({
+        @NamedQuery(name = "Expense.findExpenseById",
+                query = "from Expense ex where ex.idExpense = :id")
+})
 @Entity
 @Table(name = "expense")
 public class Expense {
 
     @Id
     @GeneratedValue
-    @Column(name = "idExpense", nullable = false)
+    @Column(name = "id_expense", nullable = false)
     private Integer idExpense;
 
+    @NotNull
     @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "description")
     private String description;
 
+    @NotNull
     @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
 
     @Column(name = "price", precision = 10, scale = 2)
     private BigDecimal price;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "key", fetch = FetchType.LAZY)
-    private List<Tag> tags;
+    @Column(name = "tags")
+    private String tags;
 
     public Integer getIdExpense() {
         return idExpense;
@@ -70,11 +77,11 @@ public class Expense {
         this.price = price;
     }
 
-    public List<Tag> getTags() {
+    public String getTags() {
         return tags;
     }
 
-    public void setTags(List<Tag> tags) {
+    public void setTags(String tags) {
         this.tags = tags;
     }
 
