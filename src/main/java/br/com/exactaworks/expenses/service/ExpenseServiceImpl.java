@@ -3,11 +3,13 @@ package br.com.exactaworks.expenses.service;
 import br.com.exactaworks.expenses.dao.ExpenseRepository;
 import br.com.exactaworks.expenses.pojo.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+@Component
 public class ExpenseServiceImpl extends ServiceBase<Expense> {
     @Autowired
     private ExpenseRepository expenseDao;
