@@ -97,4 +97,17 @@ public class Expense {
     public int hashCode() {
         return Objects.hash(idExpense);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("( id: ").append(idExpense);
+        sb.append(", name: ").append(name);
+        sb.append(", description: ").append(description);
+        sb.append(", dateTime: ").append(dateTime);
+        sb.append(", price: ").append(price);
+        sb.append(", tags: ").append(tags);
+        sb.append(")");
+        return sb.toString();
+    }
 }
