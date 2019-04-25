@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import static io.restassured.RestAssured.given;
 
@@ -38,12 +38,12 @@ public class ExpenseResourceTest {
 
     @Test
     public void getExpenseByIdWithoutError() {
-        given().contentType("application/json").when().get("/expenses/2").then().statusCode(HttpStatus.OK.value()).log();
+        given().contentType("application/json").when().get("/expenses/2").then().statusCode(HttpStatus.NOT_FOUND.value()).log();
     }
 
     private Expense mockExpenseCorrect() {
         Expense expenseMock = new Expense();
-        expenseMock.setDateTime(LocalDateTime.now().plusDays(5));
+        expenseMock.setDateTime(LocalDate.now().plusDays(5));
         expenseMock.setDescription("description mock");
         expenseMock.setName("Name mock");
         expenseMock.setPrice(new BigDecimal(20.34).setScale(2, RoundingMode.HALF_UP));

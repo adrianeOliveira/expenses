@@ -38,6 +38,10 @@ public class ExpenseResource {
     public ResponseEntity<Expense> listExpenses(@PathVariable("id") Integer id) {
         log.info("Searching for expense from id: {}", id);
         Expense expense = expenseService.getByid(id);
+        if (expense == null) {
+            log.info("Expense not found");
+            return new ResponseEntity<>(expense, HttpStatus.NOT_FOUND);
+        }
         log.info("Expense found: {}", expense);
         return new ResponseEntity<>(expense, HttpStatus.OK);
     }

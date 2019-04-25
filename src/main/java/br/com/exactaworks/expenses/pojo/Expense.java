@@ -3,8 +3,7 @@ package br.com.exactaworks.expenses.pojo;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @NamedQueries({
@@ -29,7 +28,7 @@ public class Expense {
 
     @NotNull
     @Column(name = "date_time", nullable = false)
-    private LocalDateTime dateTime;
+    private LocalDate dateTime;
 
     @Column(name = "price", precision = 10, scale = 2)
     private BigDecimal price;
@@ -61,11 +60,11 @@ public class Expense {
         this.description = description;
     }
 
-    public LocalDateTime getDateTime() {
+    public LocalDate getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(LocalDate dateTime) {
         this.dateTime = dateTime;
     }
 
