@@ -28,7 +28,7 @@ public class ExpenseResourceTest {
     @Test
     public void insertNewExpenseWithoutError() {
         given().contentType("application/json").body(mockExpenseCorrect())
-                .when().put("/expenses").then().statusCode(HttpStatus.ACCEPTED.value());
+                .when().post("/expenses").then().statusCode(HttpStatus.ACCEPTED.value()).log();
     }
 
     @Test
@@ -37,7 +37,7 @@ public class ExpenseResourceTest {
     }
 
     @Test
-    public void getExpenseByIdWithoutError() {
+    public void getExpenseByIdNotFound() {
         given().contentType("application/json").when().get("/expenses/2").then().statusCode(HttpStatus.NOT_FOUND.value()).log();
     }
 

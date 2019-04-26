@@ -20,7 +20,7 @@ public class ExpenseResource {
     @Autowired
     private ExpenseServiceImpl expenseService;
 
-    @PutMapping(consumes = "application/json")
+    @PostMapping(consumes = "application/json")
     public ResponseEntity<HttpStatus> saveExpense(@RequestBody @Valid Expense expense) {
         log.info("Received expense: {}", expense);
         expenseService.merge(expense);
