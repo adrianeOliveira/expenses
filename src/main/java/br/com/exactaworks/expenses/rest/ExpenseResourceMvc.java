@@ -10,7 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller(value = "/controller/expense")
+@Controller
+@RequestMapping(value = "/controller/expenses")
 public class ExpenseResourceMvc {
     private final Logger log = LogManager.getLogger(ExpenseResourceMvc.class);
 
