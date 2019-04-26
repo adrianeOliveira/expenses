@@ -6,7 +6,7 @@
     <title>Expense Form</title>
 </head>
 <body>
-    <s:form method="POST" action="/controller/expense" modelAttribute="expense">
+    <s:form method="POST" action="/controller/expenses" modelAttribute="expense">
         <table>
             <s:hidden path="idExpense" value="${idExpense}"/>
             <tr>

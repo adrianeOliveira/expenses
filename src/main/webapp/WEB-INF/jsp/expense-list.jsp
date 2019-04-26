@@ -17,7 +17,7 @@
             <tr>
                 <td>${expense.name}</td>
                 <td>${expense.description}</td>
-                <td><a href="/controller/expense/form/${expense.idExpense}">Exibir</a></td>
+                <td><a href="/controller/expenses/form/${expense.idExpense}">Exibir</a></td>
             </tr>
         </c:forEach>
     </table>
